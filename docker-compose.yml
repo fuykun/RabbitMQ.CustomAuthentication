@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  message-bus:
+    container_name: rabbitmq-server
+    build: ./
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - rabbitmq-network
+
+  auth-backend:
+    container_name: auth-api
+    build: ./AuthApi/
+    ports:
+      - "3434:3434"
+    networks:
+      - rabbitmq-network
+
+networks:
+  rabbitmq-network:
