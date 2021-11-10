@@ -12,7 +12,7 @@ services:
 
   auth-backend:
     container_name: auth-api
-    build: ./AuthApi/
+    build: ./AuthApi/.NET6-MinimalApi/
     ports:
       - "3434:3434"
     networks:
